@@ -179,7 +179,7 @@ const useStyles = makeStyles((theme) => ({
 
       "& .MuiOutlinedInput-notchedOutline": {
         boxShadow:
-          "inset -10px -10px 20px rgb(255 255 255 / 24%), inset -20px -1px 15px 6px rgb(0 0 0 / 51%) !important",
+          "inset -2px -2px 8px rgb(255 255 255 / 24%), inset -20px -1px 15px 6px rgb(0 0 0 / 51%) !important",
       },
       "& .selectBox": {
         display: "flex",
@@ -232,7 +232,7 @@ const useStyles = makeStyles((theme) => ({
     background:
       "linear-gradient(113.53deg, #2AC6F1 2.39%, #4681EF 54.27%, #5D3EFF 99.22%)",
     boxShadow:
-      "-10px -10px 20px rgb(255 255 255 / 26%), 10px 10px 40px rgb(0 0 0 / 60%)",
+      "-2px -2px 8px rgb(255 255 255 / 26%), 10px 10px 40px rgb(0 0 0 / 60%)",
     borderRadius: "100px",
     width: "261px",
     height: "50px",
@@ -677,7 +677,7 @@ export default function Header({ buttonClick }) {
         if (provider.networkVersion == "80001") {
           domainData.chainId = 80001;
           const biconomy = new Biconomy(provider, {
-            apiKey: "O3-IjZClP.ce1ab5be-6f1d-4355-a450-f6a553818f12", //"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
+            apiKey: process.env.REACT_APP_BICONOMY_API_KEY, //"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
             debug: true,
           });
           web3 = new Web3(biconomy);
@@ -904,7 +904,7 @@ export default function Header({ buttonClick }) {
                                   color="primary"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                                     height: "50px",
                                   }}
                                   fullWidth
@@ -920,7 +920,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -942,7 +942,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -1177,7 +1177,7 @@ export default function Header({ buttonClick }) {
                                   color="primary"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                                     height: "50px",
                                   }}
                                   fullWidth
@@ -1193,7 +1193,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -1215,7 +1215,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -1336,7 +1336,7 @@ export default function Header({ buttonClick }) {
                       color="primary"
                       style={{
                         boxShadow:
-                          "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
+                          "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
                         height: "50px",
                       }}
                       fullWidth

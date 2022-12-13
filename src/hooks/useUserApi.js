@@ -1,9 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-// let baseurl= process.env.BASE_URL
-let baseurl="https://staging.dexwin.bet/betapi";
-// let baseurl="http://localhost:3023";
+let baseurl = process.env.REACT_APP_BASE_URL;
 
 const useUserApi = () => {
   const [refData, setRefData] = useState();

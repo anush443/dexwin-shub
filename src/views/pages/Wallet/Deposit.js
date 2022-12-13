@@ -87,7 +87,7 @@ const Deposit = () => {
     }, 2000);
   };
 
-  const depositeCurrency = async (_fund) => {
+  const   depositeCurrency = async (_fund) => {
     try {
       setLoader(true);
       const res = await deposit1(_fund);
@@ -95,7 +95,7 @@ const Deposit = () => {
         setTimeout(async () => {
           const balance = await updateBalance();
           setLoader(false);
-          snackBar("Deposite " + _fund + " amount successfully.", "success");
+          snackBar("Deposit " + _fund + " amount successfully.", "success");
           dispatch(getBalanceAction(balance));
         }, 30000);
       } else {
@@ -112,9 +112,6 @@ const Deposit = () => {
   }, []);
   return (
     <>
-      {snackBarContent && (
-        <SnackbarService msg={snackBarMsg} status={snackBarStatus} />
-      )}
       <Box className="Banner">
         <Box className={classes.exchange}>
           <Grid container spacing={2}>
@@ -186,6 +183,9 @@ const Deposit = () => {
               >
                 Submit{" "}
               </Button>
+            )}
+            {snackBarContent && (
+              <SnackbarService msg={snackBarMsg} status={snackBarStatus} />
             )}
           </Box>
         </Box>

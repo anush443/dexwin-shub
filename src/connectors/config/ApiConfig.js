@@ -1,6 +1,5 @@
 // Base URL
-let baseurl="https://staging.dexwin.bet/betapi";
-// let baseurl="http://localhost:3023";
+let baseurl = process.env.REACT_APP_BASE_URL;
 
 const apiConfig = {
     // connect-wallet

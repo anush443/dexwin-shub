@@ -1,6 +1,4 @@
-// let baseurl= process.env.BASE_URL
-let baseUrl="https://staging.dexwin.bet/betapi";
-// let baseurl="http://localhost:3023";
+let baseUrl = process.env.REACT_APP_BASE_URL;
 
 // GET ALL USERS DATA ENDPOINTS
 export const GET_ALL_ODDS =

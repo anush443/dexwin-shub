@@ -257,7 +257,7 @@ export default function DashboardCard(props) {
   const [league, setleague] = useState("");
   const [scores, setScores] = useState("");
   const [details, setDetails] = useState({});
-  const [openModal, setOpenModal] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);     // Coming Soon
 
   const handleChange1 = (event) => {
     setSelect1(event.target.value);
