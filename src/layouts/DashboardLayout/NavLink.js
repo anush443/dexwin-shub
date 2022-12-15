@@ -60,10 +60,10 @@ const headersData = [
   },
   {
     label: "Referral",
-    href: "/referrals",
+    href: "",
     icon: "images/group.svg",
     active: "images/refblue.svg",
-    tooltipName: "Referral"
+    tooltipName: "Coming Soon"
   },
   {
     label: "Leaderboard",
@@ -242,7 +242,7 @@ export default function (props) {
                   <div className="navlinkIcon">
                     <img style={{ marginTop: "8px" }} src={icon}></img>{" "}
                   </div>
-                  {(location.pathname == href || href === '/referrals') ? (
+                  {location.pathname == href ? (
                     <span className="menuText activeLink">{label}</span>
                   ) : (
                     <span className="nonActive" >

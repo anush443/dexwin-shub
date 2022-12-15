@@ -1,5 +1,6 @@
 // Base URL
-let baseurl = process.env.REACT_APP_BASE_URL;
+let baseurl="https://nodepune-v3proficient.mobiloitte.com/";
+// let baseurl="http://localhost:3012";
 
 const apiConfig = {
     // connect-wallet
@@ -95,6 +96,7 @@ const apiConfig = {
     
     // Leagues
     leaguesAPI:`${baseurl}/api/leagues`,
+
 }
 
 export default apiConfig;

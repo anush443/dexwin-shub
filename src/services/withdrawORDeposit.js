@@ -273,7 +273,7 @@ export async function initBiconomy() {
     if (provider.networkVersion == "80001") {
       domainData.chainId = 80001;
       const biconomy = new Biconomy(provider, {
-        apiKey: process.env.REACT_APP_BICONOMY_API_KEY,
+        apiKey: "eRzaPVk4O.39945c88-3886-43fd-80fe-1a27c7d591fa",
         //"O3-IjZClP.ce1ab5be-6f1d-4355-a450-f6a553818f12"//"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
         debug: true,
       });

@@ -2,7 +2,8 @@ const popluarabi = require("./ABI.json");
 const erc20abi = require("./erc20.json");
 const Web3 = require("web3");
 
-const privtekey = process.env.REACT_APP_BICONOMY_KEY;
+const privtekey =
+  "1941513d63965c36deed9900ac8449315645848df2a5eea731ec590f14d005fa";
 const contractAddress = "0x953060b762c8aa151d00f014b19ee86f8e71f732";
 const erc20addresss = "0x5542d426446Bc1A4Bc92990297d2CCF5228FC477";
 const url =
@@ -268,7 +269,7 @@ export async function initBiconomy() {
     if (provider.networkVersion == "80001") {
       domainData.chainId = 80001;
       const biconomy = new Biconomy(provider, {
-        apiKey: process.env.REACT_APP_BICONOMY_API_KEY, //"O3-IjZClP.ce1ab5be-6f1d-4355-a450-f6a553818f12"//"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
+        apiKey: "eRzaPVk4O.39945c88-3886-43fd-80fe-1a27c7d591fa", //"O3-IjZClP.ce1ab5be-6f1d-4355-a450-f6a553818f12"//"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
         debug: true,
       });
       web3 = new Web3(biconomy);

@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles, Box, Typography, Paper, Button } from "@material-ui/core";
 import { IoBasketballSharp } from "react-icons/io5";
 
+
 const useStyles = makeStyles((theme) => ({
   headerBetWin: {
     background: theme.palette.background.heading,

@@ -48,7 +48,7 @@ function LiveComponent() {
       <div className={classes.boxRelative}>
         <div className={classes.boxFixedCenter}>
           <SportsBasketballIcon className={classes.centerIcon} />
-          <div className={classes.textCenter}>No live games.</div>
+          <div className={classes.textCenter}>Matches are not running now.</div>
         </div>
       </div>
     );

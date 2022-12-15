@@ -232,16 +232,13 @@ const contractabi = [
 ];
 const contract = new Web3Client.eth.Contract(contractabi, contractaddress);
 export const updateBalance = async () => {
-  if(localStorage?.getItem("userAddress")?.length){
-    const walletAddress = localStorage.getItem("userAddress").toString();
-    console.log(walletAddress, "uBalanceWalletAddress");
-    const result = await contract.methods.balance(walletAddress).call();
-    console.log(result.toString(), "uBalanceResult");
-    const format = Web3Client.utils.fromWei(result, "ether");
-    const floatValue = parseFloat(format).toFixed(2);
-    console.log(floatValue, "uBalanceFloatValue");
-    localStorage.setItem("userBalance", floatValue);
-    return floatValue;
-  }
-
+  const walletAddress = localStorage.getItem("userAddress").toString();
+  console.log(walletAddress, "uBalanceWalletAddress");
+  const result = await contract.methods.balance(walletAddress).call();
+  console.log(result.toString(), "uBalanceResult");
+  const format = Web3Client.utils.fromWei(result, "ether");
+  const floatValue = parseFloat(format).toFixed(2);
+  console.log(floatValue, "uBalanceFloatValue");
+  localStorage.setItem("userBalance", floatValue);
+  return floatValue;
 };

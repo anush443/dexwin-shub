@@ -25,7 +25,6 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import web from "web3";
-import { connectWalletAddress } from "../../../services/connectWallet";
 import {
   NotificationContainer,
   NotificationManager,
@@ -179,7 +178,7 @@ const useStyles = makeStyles((theme) => ({
 
       "& .MuiOutlinedInput-notchedOutline": {
         boxShadow:
-          "inset -2px -2px 8px rgb(255 255 255 / 24%), inset -20px -1px 15px 6px rgb(0 0 0 / 51%) !important",
+          "inset -10px -10px 20px rgb(255 255 255 / 24%), inset -20px -1px 15px 6px rgb(0 0 0 / 51%) !important",
       },
       "& .selectBox": {
         display: "flex",
@@ -232,7 +231,7 @@ const useStyles = makeStyles((theme) => ({
     background:
       "linear-gradient(113.53deg, #2AC6F1 2.39%, #4681EF 54.27%, #5D3EFF 99.22%)",
     boxShadow:
-      "-2px -2px 8px rgb(255 255 255 / 26%), 10px 10px 40px rgb(0 0 0 / 60%)",
+      "-10px -10px 20px rgb(255 255 255 / 26%), 10px 10px 40px rgb(0 0 0 / 60%)",
     borderRadius: "100px",
     width: "261px",
     height: "50px",
@@ -628,44 +627,34 @@ export default function Header({ buttonClick }) {
     checkConnect();
     getBalance();
   }, []);
-  // const login = async (path) => {
 
-  // const connectWalletAddress = async (address) => {
-  //   const query = new Moralis.Query("User");
-  //   query.equalTo("userAddress", address[0]);
-  //   const results = await query.find({ useMasterKey: true });
-  //   if (results.length == 0) {
-  //     const UserCreate = Moralis.Object.extend("User");
-  //     const User = new UserCreate();
-  //     User.set("ethAddress", address[0]);
-  //     User.set("username", address[0]);
-  //     User.set("password", address[0]);
-  //     User.save().then(
-  //       () => {
-  //         console.log("Connect Wallet Sucessfully");
-  //       },
-  //       (error) => {
-  //         console.log(error, "error");
-  //       }
-  //     );
-  //   }
-  // };
-  const login = async (path) => {
+  const connectWalletAddress = async (address) => {
+    const query = new Moralis.Query("User");
+    query.equalTo("userAddress", address[0]);
+    const results = await query.find({ useMasterKey: true });
+    if (results.length == 0) {
+      const UserCreate = Moralis.Object.extend("User");
+      const User = new UserCreate();
+      User.set("ethAddress", address[0]);
+      User.set("username", address[0]);
+      User.set("password", address[0]);
+      User.save().then(
+        () => {
+          console.log("Connect Wallet Sucessfully");
+        },
+        (error) => {
+          console.log(error, "error");
+        }
+      );
+    }
+  };
+  const login = async () => {
     if (window.ethereum) {
       //check if Metamask is installed
       try {
         const address = await window.ethereum.enable(); //connect Metamask
-        const referralID = path?.href?.split("?")
 
-          if(address) {
-            if(referralID?.[1]?.length){
-              connectWalletAddress(address[0], referralID[1].slice(11,referralID[1].length))
-            } else {
-              connectWalletAddress(address[0],'')
-            }
-          }
-
-        // connectWalletAddress(address);
+        connectWalletAddress(address);
         const obj = {
           connectedStatus: true,
           status: "",
@@ -677,7 +666,7 @@ export default function Header({ buttonClick }) {
         if (provider.networkVersion == "80001") {
           domainData.chainId = 80001;
           const biconomy = new Biconomy(provider, {
-            apiKey: process.env.REACT_APP_BICONOMY_API_KEY, //"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
+            apiKey: "O3-IjZClP.ce1ab5be-6f1d-4355-a450-f6a553818f12", //"MublK0H-b.864389b3-e421-4ddb-b56b-e5a1bca3e109"
             debug: true,
           });
           web3 = new Web3(biconomy);
@@ -904,7 +893,7 @@ export default function Header({ buttonClick }) {
                                   color="primary"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                                     height: "50px",
                                   }}
                                   fullWidth
@@ -920,7 +909,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -942,7 +931,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -1177,7 +1166,7 @@ export default function Header({ buttonClick }) {
                                   color="primary"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                                     height: "50px",
                                   }}
                                   fullWidth
@@ -1193,7 +1182,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -1215,7 +1204,7 @@ export default function Header({ buttonClick }) {
                                   variant="contained"
                                   style={{
                                     boxShadow:
-                                      "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                                      "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                                     height: "50px",
                                   }}
                                   color="primary"
@@ -1240,7 +1229,7 @@ export default function Header({ buttonClick }) {
                         <Grid container spacing={2} alignItems="center">
                           <Box width="100%" textAlign="right">
                             <Button
-                              onClick={() => login(window.location)}
+                              onClick={() => login()}
                               className={classes.btn}
                             >
                               CONNECT WALLET
@@ -1336,7 +1325,7 @@ export default function Header({ buttonClick }) {
                       color="primary"
                       style={{
                         boxShadow:
-                          "rgb(87 82 82 / 50%) -2px -2px 8px, rgba(0, 0, 0, 0.5) 3px 3px 10px",
+                          "rgb(87 82 82 / 50%) -10px -10px 20px, rgb(48 47 47 / 50%) 10px 10px 20px",
                         height: "50px",
                       }}
                       fullWidth

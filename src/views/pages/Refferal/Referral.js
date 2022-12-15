@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
 import {
   Typography,
   Box,
@@ -10,7 +10,6 @@ import {
   TextField,
 } from "@material-ui/core";
 import styled from "styled-components";
-import useUserApi  from '../../../hooks/useUserApi'
 import { makeStyles } from "@material-ui/core/styles";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -131,23 +130,11 @@ const Para = styled.p`
 
 export default function (props) {
   const classes = useStyles();
-  const { refData, getReferalInfo } = useUserApi()
-  const [referalData, setRefferalData] = useState()
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState([]);
   const [copySuccess, setCopySuccess] = useState(false);
   const [snackBarContent, setSnackBarContent] = useState(false);
   const [snackBarMsg, setSnackBarMsg] = useState("");
   const [snackBarStatus, setSnackBarStatus] = useState("");
-
-  useEffect(() => {
-    if(address) getReferalInfo(address)
-  }, [address])
-
-
-  useEffect(() => {
-    if(refData) setRefferalData({ refCount: refData.referalList, commission: refData.user[0].commission.dwin})
-  }, [refData])
-
   const snackBar = (msg, status) => {
     setSnackBarMsg(msg);
     setSnackBarStatus(status);
@@ -161,19 +148,6 @@ export default function (props) {
     setCopySuccess(true);
     snackBar("Copied Wallet Address", "info");
   };
-
-  const fetchRefAddress = async () => {
-    if(window?.ethereum){
-      const addressRef = await window.ethereum.enable()
-      setAddress(addressRef[0])
-    }
-  }
-
-  useEffect(() => {
-    fetchRefAddress()
-  }, [window?.ethereum])
-
-
   return (
     
     <Paper className={classes.PostBox} elevation={2}>
@@ -213,7 +187,7 @@ export default function (props) {
                 <Typography variant="h5">Total Referred Friends</Typography>
 
                 <Typography align="center" variant="h1">
-                  {referalData?.refCount !== 0? referalData?.refCount: 0}
+                  10
                 </Typography>
               </Box>
             </Grid>
@@ -223,9 +197,9 @@ export default function (props) {
                 <Box className={classes.BtcCard}>
                   <Flex2>
                     <Typography variant="h1" align="center">
-                    {referalData?.commission}
+                      10
                     </Typography>
-                    <Para style={{marginTop:'revert'}}>$DWIN</Para>
+                    <Para style={{marginTop:'revert'}}>BTC</Para>
                   </Flex2>
                 </Box>
               </Box>
@@ -247,12 +221,12 @@ export default function (props) {
                 <TextField
                   variant="outlined"
                   fullWidth
-                  value={`app.staging.dexwin.bet/?referralID=${address}`}
+                  value="www.abccampaign.com"
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
                         {/*<MdOutlineContentCopy />*/}
-                        <CopyToClipboard text={`app.staging.dexwin.bet/?referralID=${address}`}>
+                        <CopyToClipboard text={address}>
                           {!copySuccess ? (
                             <IconButton onClick={() => copyAddress()}>
                               <MdOutlineContentCopy

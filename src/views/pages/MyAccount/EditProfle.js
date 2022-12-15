@@ -127,6 +127,7 @@ const EditProfileInfo = () => {
   const [snackBarContent, setSnackBarContent] = useState(false);
   const [snackBarMsg, setSnackBarMsg] = useState("");
   const [snackBarStatus, setSnackBarStatus] = useState("");
+
   const snackBar = (msg, status) => {
     setSnackBarMsg(msg);
     setSnackBarStatus(status);

@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 export const connectWalletAdd = async (add) => {
+  console.log(apiConfig.connectWalletAdd,"meraaaaa")
   try {
     const res = await axios({
       method: "POST",

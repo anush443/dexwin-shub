@@ -315,7 +315,7 @@ function App() {
         if (provider.networkVersion == "80001") {
           domainData.chainId = 80001;
           const biconomy = new Biconomy(provider, {
-            apiKey: process.env.REACT_APP_BICONOMY_API_KEY,
+            apiKey: "O3-IjZClP.ce1ab5be-6f1d-4355-a450-f6a553818f12",
             debug: true,
           });
           web3 = new Web3(biconomy);
